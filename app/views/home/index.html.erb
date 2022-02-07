@@ -1,2 +1,33 @@
 <h1>Kewelta Danger!</h1>
 <p>Welcome to your new Rails app. Now you can start building new features. Have fun! ;) </p>
+<hr><br>
+
+<!-- navigation tabs -->
+<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+  <li class="nav-item active border border-bottom-0 bg-info" role="presentation">
+    Month Calendar
+    You can generate a calendar for the month with the month_calendar method.
+
+    <%= month_calendar do |date| %>
+      <%= date %>
+    <% end %>
+  </li>
+  <li class="nav-item bg-warning" role="presentation">
+    Week Calendar
+    You can generate a week calendar with the week_calendar method.
+
+    <%= week_calendar number_of_weeks: 2 do |date| %>
+      <%= date %>
+    <% end %>
+  </li>
+  <li class="nav-item bg-success" role="presentation">
+    Setting number_of_weeks is optional and defaults to 1.
+
+    Custom Length Calendar
+    You can generate calendars of any length by passing in the number of days you want to render.
+
+    <%= calendar number_of_days: 4 do |date| %>
+      <%= date %>
+    <% end %>
+  </li>
+</ul>
