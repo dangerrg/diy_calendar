@@ -2,13 +2,14 @@
 
 <h1>Meetings</h1>
 
-<div id="meetings">
-  <% @meetings.each do |meeting| %>
-    <%= render meeting %>
-    <p>
-      <%= link_to "Show this meeting", meeting %>
-    </p>
+<%= month_calendar events: @meetings do |date, meetings| %>
+  <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.name %>
+    </div>
   <% end %>
-</div>
+<% end %>
 
 <%= link_to "New meeting", new_meeting_path %>
