@@ -1,0 +1,9 @@
+<div class="bg-warning active border border-bottom-0" role="presentation">
+  <%= calendar number_of_days: 1 do |date| %>
+    <div class="position-relative">
+      <button type="button" class="position-absolute top-0 start-50 btn btn-sm btn-primary rounded-pill p-0" style="width: 1.3rem; height:1.3rem;">
+        <%= "#{date.day}" %>
+      </button>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,56 @@
+<!-- /.sidebar -->
+<div class="d-flex flex-column flex-shrink-0 p-0 text-white bg-primary bg-gradient offset" style="width: 280px;">
+  <div class="p-3">
+
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-4">Sidebar</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <%= link_to home_index_path, class:"nav-link text-white" do %>
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+        Home
+        <% end %>
+      </li>
+      <li>
+        <%= link_to meetings_path, class:"nav-link text-white" do %>
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+        Meetings
+        <% end %>
+      </li>
+      <li>
+        <%= link_to home_index_path, class:"nav-link text-white" do %>
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+        Orders
+        <% end %>
+      </li>
+      <li>
+        <%= link_to home_index_path, class:"nav-link text-white" do %>
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+        Products
+        <% end %>
+      </li>
+      <li>
+        <%= link_to home_index_path, class:"nav-link text-white" do %>
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+        Customers
+        <% end %>
+      </li>
+    </ul>
+    <hr>
+    <%= render "partials/dropdown_avatar" %>
+    <!-- <br><hr><br> -->
+  </div>
+  <div class="p-0">
+    <!-- <br><hr><br> -->
+    <% @meetings.each do |meeting| %>
+      <div>
+        <%= meeting.start_time.strftime('%R') %>
+        <%= meeting.name %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

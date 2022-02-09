@@ -1,0 +1,23 @@
+<div class="active border border-bottom-0" role="presentation">
+  <!--  month_calendar -->
+  <%= month_calendar(events: @meetings) do |date, meetings| %>
+    <!-- #Day of the month (rounded btn blue)-->
+    <div class="position-relative">
+      <div type="button" class="position-absolute top-0 start-50" style="width: 1.3rem; height:1.3rem;">
+        <%= "#{date.day}" %>
+      </div>
+    </div>
+
+    <br>
+    <!-- meetings event -->
+    <% meetings.each do |meeting| %>
+      <div class="bg-white text- rounded-pill text-dark" role="presentation" style="--bs-bg-opacity: .75;">
+        <span class="text-info">•</span>
+        <span>
+          <%= meeting.start_time.strftime('%R') %>
+          <strong><%= meeting.name %></strong>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+</div>
