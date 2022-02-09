@@ -1,33 +1,118 @@
 <h1>Kewelta Danger!</h1>
 <p>Welcome to your new Rails app. Now you can start building new features. Have fun! ;) </p>
 <hr><br>
-
-<!-- navigation tabs -->
+<!-- Nav tabs -->
 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+  <!-- Tab Name -->
   <li class="nav-item active border border-bottom-0 bg-info" role="presentation">
-    Month Calendar
-    You can generate a calendar for the month with the month_calendar method.
-
-    <%= month_calendar do |date| %>
-      <%= date %>
-    <% end %>
+    <%= link_to "Home", home_index_path, class:"nav-link text-white", id:"dashboard-tab" %>
   </li>
-  <li class="nav-item bg-warning" role="presentation">
-    Week Calendar
-    You can generate a week calendar with the week_calendar method.
-
-    <%= week_calendar number_of_weeks: 2 do |date| %>
-      <%= date %>
-    <% end %>
+  <!-- Tab Name -->
+  <li class="nav-item" role="presentation">
+    <%= link_to "Meetings", meetings_path, class:"nav-link text-secondary", id:"abonnés-tab" %>
   </li>
-  <li class="nav-item bg-success" role="presentation">
-    Setting number_of_weeks is optional and defaults to 1.
-
-    Custom Length Calendar
-    You can generate calendars of any length by passing in the number of days you want to render.
-
-    <%= calendar number_of_days: 4 do |date| %>
-      <%= date %>
-    <% end %>
+  <!-- Tab Name -->
+  <li class="nav-item active border border-bottom-0 bg-info" role="presentation">
+    <%= link_to "Calendar", home_index_path, class:"nav-link text-white", id:"dashboard-tab" %>
   </li>
 </ul>
+
+<!-- meeting link -->
+<div class="container sidebar">
+  <%= link_to "Meetings", meetings_path %>
+</div>
+<hr>
+<div class="container-fluid">
+<!-- /.sidebar -->
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-primary bg-gradient" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-4">Sidebar</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <%= link_to home_index_path, class:"nav-link text-white" do %>
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+          Home
+      <% end %>
+      </li>
+      <li>
+        <%= link_to meetings_path, class:"nav-link text-white" do %>
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+          Meetings
+        <% end %>
+      </li>
+      <li>
+        <%= link_to home_index_path, class:"nav-link text-white" do %>
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+          Orders
+        <% end %>
+      </li>
+      <li>
+        <%= link_to home_index_path, class:"nav-link text-white" do %>
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+          Products
+        <% end %>
+      </li>
+      <li>
+        <%= link_to home_index_path, class:"nav-link text-white" do %>
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+          Customers
+        <% end %>
+      </li>
+    </ul>
+    <hr>
+    <%= render "partials/dropdown_avatar" %>
+  </div>
+
+  <!-- calendar -->
+  <!-- <div class="container-fluid"> -->
+  <!-- navigation tabs -->
+  <div class="container container bg-light" id="myTab" role="tablist">
+
+    <strong class="text-danger"><h3>Month Calendar</h3></strong><br>
+    You can generate a calendar for the month with the month_calendar method.
+
+    <%= render "partials/month_view" %>
+  </div>
+
+  <br>
+
+  <!--  week_calendar -->
+  <div class="container bg-light" role="presentation">
+    <strong class="text-danger"><h3>Week Calendar</h3></strong><br>
+    You can generate a week calendar with the week_calendar method.
+
+    <%= render "partials/week_view" %>
+  </div>
+
+  <br>
+
+  <!--  day_calendar -->
+  <div class="container bg-light" role="presentation">
+    Setting number_of_weeks is optional and defaults to 1.
+    <strong class="text-danger"><h3>Day Calendar</h3></strong><br>
+
+    <%= render "partials/day_view" %>
+  </div>
+
+  <br>
+
+  <!--  custom_calendar -->
+  <div class="container bg-light" role="presentation">
+    <strong class="text-danger"><h3>Custom Length Calendar</h3></strong><br>
+    Setting number_of_weeks is optional and defaults to 1.
+
+    You can generate calendars of any length by passing in the number of days you want to render.
+
+    <%= calendar number_of_days: 5 do |date| %>
+      <div class="position-relative">
+        <button type="button" class="position-absolute top-0 start-50 btn btn-sm btn-primary rounded-pill p-0" style="width: 1.3rem; height:1.3rem;">
+          <%= "#{date.day}" %>
+        </button>
+      </div>
+    <% end %>
+  </div>
+
+</div>
