@@ -1,4 +1,4 @@
-<div class="offcanvas offcanvas-start d-flex flex-column flex-shrink-0 show" data-bs-scroll="true" tabindex="-1" id="eventlist" aria-labelledby="offcanvasLabel">
+<div class="offcanvas offcanvas-start d-flex flex-column flex-shrink-0" data-bs-scroll="true" tabindex="-1" id="eventlist" aria-labelledby="offcanvasLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasLabel">Schedule meetings</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -6,21 +6,7 @@
   <div class="offcanvas-body">
 
     <div class="list-group list-group-flush border-bottom scrollarea p-0">
-<% if @meetings  %>
-  <!-- true -->
-  <% @meetings.each do |meeting| %>
-
-  <div class="d-flex w-100 align-items-center justify-content-between">
-    <strong class="mb-1"><%= "#{meeting.start_time.strftime('%R')}" %></strong>
-    <small><%= meeting.start_time.strftime('%a') %></small>
-  </div>
-  <div>
-    <%= meeting.name %>
-  </div>
-  <hr>
-
-  <% end %>
-<% end %>
+      Some content here...
     </div>
 
 

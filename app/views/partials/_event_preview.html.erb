@@ -1,9 +1,19 @@
 <div class="list-group list-group-flush border-bottom scrollarea">
   <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-    <div class="d-flex w-100 align-items-center justify-content-between">
-      <strong class="mb-1">List group item heading</strong>
-      <small>Wed</small>
-    </div>
-    <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+    <% if @meetings  %>
+      <!-- true -->
+      <% @meetings.each do |meeting| %>
+
+      <div class="d-flex w-100 align-items-center justify-content-between">
+        <small><%= "#{meeting.start_time.strftime('%R - %d %b %Y' )}" %></small>
+        <small><%= meeting.start_time.strftime('%a') %></small>
+      </div>
+      <div>
+        <strong class="mb-1"><%= meeting.name %></strong>
+      </div>
+      <hr>
+
+      <% end %>
+    <% end %>
   </a>
 </div>
