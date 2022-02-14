@@ -41,9 +41,15 @@
 
     <%= calendar number_of_days: 5 do |date| %>
       <div class="position-relative">
-        <button type="button" class="position-absolute top-0 start-50 btn btn-sm btn-primary rounded-pill p-0" style="width: 1.3rem; height:1.3rem;">
-          <%= "#{date.day}" %>
-        </button>
+        <% if date.day == Date.today.day %>
+          <div type="button" class="position-absolute top-0 start-50">
+            <%= link_to "#{date.day}", home_myday_path, class:"btn btn-sm btn-primary rounded-pill p-0", style:"width: 1.3rem; height:1.3rem;" %>
+          </div>
+        <% else %>
+          <div type="button" class="position-absolute top-0 start-50 btn btn-sm btn-light rounded-pill p-0" style="width: 1.3rem; height:1.3rem;">
+            <%= "#{date.day}" %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
