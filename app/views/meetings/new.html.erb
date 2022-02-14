@@ -1,9 +1,24 @@
-<h1>New meeting</h1>
+<!-- <h1>New meeting</h1> -->
 
-<%= render "form", meeting: @meeting %>
+<%# <%= render "form", meeting: @meeting %> %>
 
 <br>
 
 <div>
   <%= link_to "Back to meetings", meetings_path %>
+</div>
+
+
+<div class="modal fade" id="add-event-modal" tabindex="-1" aria-labelledby="add-event-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-light" id="add-event-label">Ajouter un évennement</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "form", meeting: @meeting %>
+      </div>
+    </div>
+  </div>
 </div>

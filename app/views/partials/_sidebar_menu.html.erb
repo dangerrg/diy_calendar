@@ -39,18 +39,5 @@
         <% end %>
       </li>
     </ul>
-    <hr>
-    <%= render "partials/dropdown_avatar" %>
-    <!-- <br><hr><br> -->
   </div>
-  <div class="p-0">
-    <!-- <br><hr><br> -->
-    <% @meetings.each do |meeting| %>
-      <div>
-        <%= meeting.start_time.strftime('%R') %>
-        <%= meeting.name %>
-      </div>
-    <% end %>
-  </div>
-
 </div>

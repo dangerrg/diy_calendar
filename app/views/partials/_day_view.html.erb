@@ -14,8 +14,10 @@
       <div class="bg-white text- rounded-pill text-dark" role="presentation" style="--bs-bg-opacity: .75;">
         <span class="text-info">•</span>
         <span>
-          <%= meeting.start_time.strftime('%R') %>
-          <strong><%= meeting.name %></strong>
+          <%= link_to meeting, class:"" do %>
+            <%= meeting.start_time.strftime('%R') %>
+            <strong><%= meeting.name %></strong>
+          <% end %>
         </span>
       </div>
     <% end %>

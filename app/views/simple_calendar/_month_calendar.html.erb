@@ -1,27 +1,13 @@
 <div class="simple-calendar">
-  <div class="calendar-heading text-center">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+  <!-- calendar heading -->
+  <div class="d-flex justify-content-evenly text-center">
 
-  </div>
-<!-- month / week / day -->
-
-  <div class="bg-dark">
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
-      </li>
-    </ul>
+    <!-- prev MONTH next -->
+    <div class="calendar-heading">
+      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+      <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    </div>
   </div>
 
   <table class="table table-light">
@@ -49,4 +35,3 @@
       <% end %>
     </tbody>
   </table>
-</div>

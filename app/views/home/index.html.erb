@@ -2,64 +2,10 @@
 <p>Welcome to your new Rails app. Now you can start building new features. Have fun! ;) </p>
 <hr><br>
 <!-- Nav tabs -->
-<%= render "partials/tabs_nav" %>
-
-<!-- meeting link -->
-<div class="container sidebar">
-  <%= link_to "Meetings", meetings_path %>
-</div>
-<hr>
-<div class="container-fluid">
-<!-- /.sidebar -->
-  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-primary bg-gradient" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-      <span class="fs-4">Sidebar</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <%= link_to home_index_path, class:"nav-link text-white" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-          Home
-      <% end %>
-      </li>
-      <li>
-        <%= link_to meetings_path, class:"nav-link text-white" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Meetings
-        <% end %>
-      </li>
-      <li>
-        <%= link_to home_index_path, class:"nav-link text-white" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-          Orders
-        <% end %>
-      </li>
-      <li>
-        <%= link_to home_index_path, class:"nav-link text-white" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          Products
-        <% end %>
-      </li>
-      <li>
-        <%= link_to home_index_path, class:"nav-link text-white" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-          Customers
-        <% end %>
-      </li>
-    </ul>
-    <hr>
-    <%= render "partials/dropdown_avatar" %>
-  </div>
-
   <!-- calendar -->
-  <!-- <div class="container-fluid"> -->
-  <!-- navigation tabs -->
-  <div class="container container bg-light" id="myTab" role="tablist">
+  <div class="bg-light" id="myTab" role="tablist">
 
     <strong class="text-danger"><h3>Month Calendar</h3></strong><br>
-    You can generate a calendar for the month with the month_calendar method.
 
     <%= render "partials/month_view" %>
   </div>
@@ -101,5 +47,3 @@
       </div>
     <% end %>
   </div>
-
-</div>

@@ -1,21 +1,4 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Meetings</h1>
-
-<%= render "partials/tabs_nav" %>
-
-<br>
-<%= link_to "New meeting", new_meeting_path %>
-
-<div class="container">
-<%= month_calendar events: @meetings do |date, meetings| %>
-  <%= date %>
-
-  <% meetings.each do |meeting| %>
-    <div>
-      <%= meeting.start_time.strftime('%b') %>
-      <%= meeting.name %>
-    </div>
-  <% end %>
-<% end %>
-</div>
+<%= render "partials/event_list" %><br>
