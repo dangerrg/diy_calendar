@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_07_152407) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_15_084545) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendars", force: :cascade do |t|
+    t.string "name"
+    t.string "background_color", limit: 7
+    t.string "text_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "meetings", force: :cascade do |t|
     t.string "name"
@@ -20,10 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_07_152407) do
     t.text "description"
     t.text "location"
     t.bigint "calendar_id", null: false
-    t.datetime "start_time", precision: 6
-    t.datetime "end_time", precision: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
