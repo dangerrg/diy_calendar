@@ -1,17 +1,24 @@
 <div id="<%= dom_id calendar %>">
-  <p>
-    <strong>Name:</strong>
-    <%= calendar.name %>
-  </p>
-
-  <p>
-    <strong>Background color:</strong>
-    <%= calendar.background_color %>
-  </p>
-
-  <p>
-    <strong>Text color:</strong>
-    <%= calendar.text_color %>
-  </p>
-
+  <!-- calendar color -->
+  <div class='d-flex align-items-center'>
+    <div class='d-flex me-1'>
+      <span class='btn rounded-pill' style='background-color: <%= calendar.background_color %>;'></span>
+    </div>
+<!-- calendar name -->
+    <div class='mr-auto flex-grow-1'>
+      <div class='text-white'>
+        <span class='btn-sm rounded-pill' style='background-color: <%= calendar.background_color %>;'>
+          <%= calendar.name %>
+        </span>
+      </div>
+    </div>
+<!-- calendar show/hide btn -->
+    <div class='ms-auto'>
+      <%= link_to '#' do %>
+        <%= button_tag size: '15x15', data: { 'calendar-state': 'displayed', 'calendar-name': calendar.name } do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -14,4 +14,28 @@
     <%= meeting.end_time %>
   </p>
 
+  <p>
+    <strong>Calendar:</strong>
+    [<%= meeting.calendar_id %>]
+    <%= meeting.calendar.name %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= meeting.location %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <%= meeting.description %>
+  </p>
+
+  <hr>
+
+ <!-- Render edit form for meetings -->
+  <details>
+    <summary>Edit this meeting</summary>
+    <p><%= render "meetings/form", meeting: meeting %></p>
+  </details>
+
 </div>

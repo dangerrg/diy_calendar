@@ -38,7 +38,7 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1
   def update
     if @meeting.update(meeting_params)
-      redirect_to @meeting, notice: "Meeting was successfully updated."
+      redirect_to home_index_path, notice: "Meeting was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -70,6 +70,6 @@ class MeetingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meeting_params
-      params.require(:meeting).permit(:name, :start_time, :end_time, :calendar_id)
+      params.require(:meeting).permit(:name, :start_time, :end_time, :calendar, :calendar_id, :location, :description)
     end
 end

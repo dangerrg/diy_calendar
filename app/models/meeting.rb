@@ -8,7 +8,7 @@ class Meeting < ApplicationRecord
     description.split(/\s+/, word_count + 1)[0...word_count].append('...').join(' ')
   end
 
-  def date
+  def date_time
     if end_time.nil?
       "Le #{format_date(start_time)}"
     else
