@@ -43,8 +43,9 @@
     <hr>
     <!-- Calendars list -->
 
-    <% if current_page?(root_path ||= meetings_path ||= calendars_path ||= home_mymonth_path ||= home_myday_path ||= home_myweek_path ||= home_index_path) %>
-
+    <% if current_page?(meetings_path) %>
+      <p>Calendar list is not available on this page</p>
+    <% else %>
       <div id="calendars">
         <% @calendars.each do |calendar| %>
           <%= render calendar %>

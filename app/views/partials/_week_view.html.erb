@@ -16,14 +16,36 @@
 
     <br>
     <!-- meetings event -->
-    <% meetings.each do |meeting| %>
-      <div class="bg-white text- rounded-pill text-dark" role="presentation" style="--bs-bg-opacity: .75;">
-        <span class="text-info">•</span>
-        <span>
+    <% meetings.each do |meeting, calendar| %>
+    <!-- Button trigger modal -->
+      <div type="button" class="text-<%= meeting.calendar.text_color %> rounded-pill text-dark" role="presentation" style='background-color: <%= meeting.calendar.background_color %> !important' data-bs-toggle="modal" data-bs-target="#exampleModal-<%= dom_id meeting %>">
+        <div class="collapse show" id="myMeetings">
+        <span class="m-2">
           <%= meeting.start_time.strftime('%R') %>
           <strong><%= meeting.name %></strong>
         </span>
       </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal-<%= dom_id meeting %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= meeting.name %></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render meeting %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <% end %>
   <% end %>
 </div>

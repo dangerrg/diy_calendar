@@ -4,7 +4,9 @@ class CalendarsController < ApplicationController
   # GET /calendars
   def index
     @calendars = Calendar.all
+    @calendar = Calendar.new
     @meetings = Meeting.all
+    @meeting = Meeting.new
   end
 
   # GET /calendars/1
@@ -23,6 +25,8 @@ class CalendarsController < ApplicationController
   # POST /calendars
   def create
     @calendar = Calendar.new(calendar_params)
+    # @calendar = Calendar.new(name: params.dig(:calendar, :name),
+    #   background_color: params.dig(:calendar, :background_color))
 
     if @calendar.save
       redirect_to @calendar, notice: "Calendar was successfully created."
@@ -55,6 +59,6 @@ class CalendarsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def calendar_params
       # params.require(:calendar).permit(:name, :background_color, :text_color)
-      params.require(:calendar).permit(name: [:calendar, :name], background_color: [:calendar, :background_color], :text_color)
+      params.require(:calendar).permit(name: [:calendar, :name], background_color: [:calendar, :background_color])
     end
 end

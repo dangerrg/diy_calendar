@@ -7,7 +7,7 @@
 <!-- calendar name -->
     <div class='mr-auto flex-grow-1'>
       <div class='text-white'>
-        <span class='btn-sm rounded-pill' style='background-color: <%= calendar.background_color %>;'>
+        <span class='badge rounded-pill' style='background-color: <%= calendar.background_color %>;'>
           <%= calendar.name %>
         </span>
       </div>
@@ -15,9 +15,12 @@
 <!-- calendar show/hide btn -->
     <div class='ms-auto'>
       <%= link_to '#' do %>
-        <%= button_tag size: '15x15', data: { 'calendar-state': 'displayed', 'calendar-name': calendar.name } do %>
+        <%= button_tag class: "btn", size: '15x15', data: { 'calendar-state': 'displayed', 'calendar-name': calendar.name } do %>
           <i class="fas fa-eye"></i>
         <% end %>
+        <a class="btn text-light" data-bs-toggle="collapse" href="#myMeetings" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <i class="fas fa-eye"></i>
+        </a>
       <% end %>
     </div>
   </div>
